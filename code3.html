@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos de los estudiantes</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #f3f4f7, #e9ebee);
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        nav {
+            background: #203a43;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        nav a {
+            margin: 0 1rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #a0d2eb;
+        }
+
+        /* Intro Section */
+        .intro {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 1100px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1.5s ease;
+        }
+        .intro p {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            color: #444;
+        }
+        .intro img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Grid & Sections */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeUp 1.5s ease;
+        }
+        section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            font-weight: bold;
+            font-size: 2rem;
+            color: #0f2027;
+            margin-bottom: 1rem;
+            text-align: center;
+            padding: 1rem;
+            background: #f0f8ff;
+            border-bottom: 4px solid #203a43;
+        }
+        .proyecto {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .proyecto img {
+            max-width: 90%;
+            height: auto;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .proyecto img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Video Styling */
+        iframe {
+            border-radius: 8px;
+            margin-top: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #203a43;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        footer .social-icons {
+            margin: 1rem 0;
+        }
+        footer .social-icons a {
+            margin: 0 0.5rem;
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        footer .social-icons a:hover {
+            color: #a0d2eb;
+        }
+
+        /* Back-to-Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0f2027;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 0.75rem 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        #back-to-top:hover {
+            background: #203a43;
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Proyectos realizados por estudiantes</h1>
+    </header>
+
+    <nav>
+        <a href="#argentina">Argentina</a>
+        <a href="#cuba">Cuba</a>
+        <a href="#peru">Peru</a>
+        <a href="#bolivia">Bolivia</a>
+        <a href="#mexico">México</a>
+        <a href="#brasil">Brasil</a>
+        <a href="#guatemala">Guatemala</a>
+        <a href="#puerto-rico">Puerto Rico</a>
+        <a href="#republica-dominicana">República Dominicana</a>
+        <a href="#venezuela">Venezuela</a>
+    </nav>
+
+    <div class="intro">
+        <p>Bienvenidos a la presentación de proyectos realizados por nuestros estudiantes. A través de sus trabajos, exploraremos la riqueza cultural de diferentes países, destacando sus músicas, danzas y tradiciones. ¡Disfruta del recorrido!</p>
+        <img src="intro-image.jpg" alt="Estudiantes trabajando juntos">
+    </div>
+
+    <div class="grid-container">
+        <section id="argentina">
+            <h2>Bailes en Argentina</h2>
+            <div class="proyecto">
+                <p><strong>Estudiantes:</strong> Alaoui Alia, Kadiri Malak, y el Hababi Sami</p>
+                <p><strong>Resumen:</strong> Una exploración de las danzas tradicionales argentinas, como el tango, la chacarera y la zamba, y su importancia en la cultura del país.</p>
+                <img src="argentina-dance.jpg" alt="Danza tradicional de Argentina">
+                <p><a href="Bailes%20en%20argentina.pdf" target="_blank">Ver las diapositivas</a></p>
+            </div>
+        </section>
+
+        <section id="cuba">
+            <h2>Cuba: Música y danzas tradicionales</h2>
+            <div class="proyecto">
+                <p><strong>Estudiantes:</strong> El Messoussi Radia y Karmachi Lina</p>
+                <p><strong>Resumen:</strong> Un recorrido por la riqueza cultural de Cuba a través de sus músicas y danzas como el son cubano, el danzón, la rumba y la salsa.</p>
+                <img src="cuba-music.jpg" alt="Instrumentos tradicionales de Cuba">
+                <p><a href="Cuba.pdf" target="_blank">Ver las diapositivas</a></p>
+            </div>
+        </section>
+        
+        <section id="peru">
+            <h2>Peru: Y sus danzas tradicionales</h2>
+            <div class="proyecto">
+                <p><strong>Estudiantes:</strong> Jad Bouayad,Khalid Barhdadi y Ahmed Ziad Bathaoui</p>
+                <p><strong>Resumen:</strong> Una exploración de las danzas tradicionales peruanas como la Marinera, el Huayno y el Festejo. Estas expresiones artísticas reflejan la diversidad cultural del país, fusionando influencias indígenas, africanas y españolas, destacando la riqueza histórica y la identidad nacional del Perú.</p>
+                <img src="Peru-music.jpg" alt="Instrumentos tradicionales de Peru">
+                <p><a href="Peru.pdf" target="_blank">Ver las diapositivas</a></p>
+            </div>
+        </section>
+        
+        <section id="bolivia">
+           <h2>Bolivia: A traves sus bailes</h2>
+           <div class="proyecto">
+               <p><strong>Estudiantes:</strong> Yazid Tanharte, Belkhayat Jallil y Bouamrani Mohammed Amine</p>
+               <p><strong>Resumen:</strong> Una presentación sobre las danzas tradicionales bolivianas como la Morenada, la Diablada y los Caporales. Estas danzas reflejan la rica herencia cultural del país, combinando tradiciones indígenas y mestizas, y son elementos clave en festivales como el famoso Carnaval de Oruro, reconocido como Patrimonio Cultural de la Humanidad.</p>
+               <img src="Bolivia-music.jpg" alt="Instrumentos tradicionales de Bolivia">
+               <p><a href="Bolivia.pdf" target="_blank">Ver las diapositivas</a></p>
+           </div>
+       </section>
+        
+        <section id="mexico">
+            <h2>Contribuciones culturales de México</h2>
+            <div class="proyecto">
+                <p><strong>Estudiantes:</strong> Alfiguigui Nour y Bouchane Yasmine</p>
+                <p><strong>Resumen:</strong> Una presentación sobre la riqueza musical y las danzas tradicionales de México, incluyendo el mariachi, el jarabe tapatío y la danza de los viejitos.</p>
+                <img src="mexico-culture.jpg" alt="Mariachi tradicional de México">
+                <p><a href="Mexican%20Cultural%20Contributions%20by%20Slidesgo.pdf" target="_blank">Ver las diapositivas</a></p>
+            </div>
+        </section>
+
+        <section id="brasil">
+            <h2>Bailes en Brasil</h2>
+            <div class="proyecto">
+                <p><strong>Estudiantes:</strong> Bouchikhi Rim y Alaoui Rym</p>
+                <p><strong>Resumen:</strong> Una exploración de la riqueza cultural brasileña a través de sus bailes como la samba, el forró, y el frevo, destacando el famoso Carnaval de Brasil.</p>
+                <img src="brazil-dance.jpg" alt="Carnaval de Brasil">
+                <p><a href="Brazil.pdf" target="_blank">Ver las diapositivas</a></p>
+            </div>
+        </section>
+
+        <section id="guatemala">
+            <h2>Danzas tradicionales de Guatemala</h2>
+            <div class="proyecto">
+                <p><strong>Estudiantes:</strong> Tahiri Miya y El Alami Hajar</p>
+                <p><strong>Resumen:</strong> Una presentación de las danzas tradicionales guatemaltecas, como el Baile del Venado y el Palo Volador, reflejando la historia y espiritualidad del país.</p>
+                <img src="guatemala-dance.jpg" alt="Danza tradicional de Guatemala">
+                <p><a href="Guatemala%20dances.pdf" target="_blank">Ver las diapositivas</a></p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YyX-Sh4JQCg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="puerto-rico">
+            <h2>Bailes de Puerto Rico</h2>
+            <div class="proyecto">
+                <p><strong>Estudiantes:</strong> Lilia Benyoussef, Malak Al Jattari, y Camelia El Kadiri</p>
+                <p><strong>Resumen:</strong> Una exploración de los bailes tradicionales de Puerto Rico como la Bomba, la Danza y la Plena, destacando su conexión con la identidad cultural del país.</p>
+                <img src="puerto-rico-dance.jpg" alt="Bailes tradicionales de Puerto Rico">
+                <p><a href="Puerto%20rico.pdf" target="_blank">Ver las diapositivas</a></p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/TjEM_0Z14YU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/CL8lHvzl1bY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="republica-dominicana">
+            <h2>República Dominicana</h2>
+            <div class="proyecto">
+                <p><strong>Estudiantes:</strong> Youssef Lakhal y Kacimi Jad</p>
+                <p><strong>Resumen:</strong> Una exploración de la riqueza cultural de la República Dominicana a través de su música y danzas como el merengue, la bachata, y más.</p>
+                <img src="republica-dominicana-dance.jpg" alt="Danza tradicional de República Dominicana">
+                <p><a href="Republica%20Dominicana.pdf" target="_blank">Ver las diapositivas</a></p>
+            </div>
+        </section>
+
+        <section id="venezuela">
+            <h2>Venezuela: El Joropo</h2>
+            <div class="proyecto">
+                <p><strong>Estudiantes:</strong> Nour Abidi y Filali Lilya</p>
+                <p><strong>Resumen:</strong> Una presentación sobre el baile nacional de Venezuela, el Joropo, incluyendo sus raíces, tipos, y características únicas.</p>
+                <img src="venezuela-joropo.jpg" alt="Danza tradicional de Venezuela">
+                <p><a href="slide%20espagnol.pdf" target="_blank">Ver las diapositivas</a></p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/F6CeeRDntJk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+    </div>
+
+    <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+
+    <footer>
+        <p>&copy; 2024 Proyectos Estudiantiles. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
